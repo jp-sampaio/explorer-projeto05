@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 
+  Quando precisar mudar de cor com a variavél fica muito melhor e com o hsl também ajuda nesse sentido;
+*/
+
+:root {
+  font-size: 62.5%;
+  
+  --ff-texting: 'Epilogue', sans-serif;
+  
+  --fs-body: 1.6rem;
+  --fs-heading: 4rem;
+
+  --lh-heading: 4.8rem;
+  
+  --fw-heading: 800;
+  --fw-texting: 400;
+
+  --hue: 250;
+  --bg-primary: hsl(var(--hue), 22%, 20%);
+  --fc-primary: hsl(var(--hue), 0%, 100%);
+  --fc-secondary: hsl(var(--hue), 50%, 80%);
+  --fc-secondary-dark: hsl(var(--hue), 100%, 11%);
+
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+body {
+  font-family: var(--ff-texting);
+  font-weight: var(--fw-texting);
+  font-size: var(--fs-body);
+  background-color: var(--bg-primary);
+  color: var(--fc-primary);
+}
+
+#page {
+  max-width: 33rem;
+  margin: 0 auto 3.2rem;
+}
+
+#page header {
+  text-align: center;
+  margin: 10rem auto 8rem;
+}
+
+#page header h1 {
+  font-weight: var(--fw-heading);
+  font-size: var(--fs-heading);
+  line-height: var(--lh-heading);
+}
+
+#page header p {
+  color: var(--fc-secondary);
+  text-transform: uppercase;
+  line-height: 3.2rem;
+  letter-spacing: 3px;
+  margin-bottom: 1.7rem;
+}
+
+#page main {
+  display: grid;
+  gap: 3.2rem;
+}
+
+#page main .cards {
+  position: relative;
+}
+
+#page main .cards img {
+  height: 41.6rem;
+  object-fit: cover;
+  border-radius: .6rem;
+  transition: all 200ms ease-in-out; 
+}
+
+#page main .cards img:hover {
+  transform: scale(1.1);
+  opacity: .5;
+}
+
+#page main .cards h2 {
+  font-weight: var(--fw-heading);
+  font-size: var(--fs-heading);
+  line-height: var(--lh-heading);
+  position: absolute;
+  bottom: 5.1rem;
+  left: 2.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+#page main .cards h2 span {
+  font-weight: var(--fw-texting);
+  font-size: var(--fs-body);
+  line-height: 3.2rem;
+  background-color: var(--fc-primary);
+  color: var(--fc-secondary-dark);
+  padding: .5rem 1.6rem;
+  border-radius: 2rem;
+  /* Vai funcionar como inline mais com as propriedades de flex */
+  display: inline-flex;
+  /* Alinhar no centro */
+  align-items: center;
+  /* Ocupar somente o tamanho do conteúdo e não se esticar por toda a caixa */
+  width: fit-content;
+}
