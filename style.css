@@ -14,7 +14,8 @@
   --ff-texting: 'Epilogue', sans-serif;
   
   --fs-body: 1.6rem;
-  --fs-heading: 4rem;
+  --fs-heading: clamp(4rem, 1rem + 5vw, 5.6rem);
+  --fs-heading-sm: clamp(3rem, .8rem + 4vw, 4rem);
 
   --lh-heading: 4.8rem;
   
@@ -43,19 +44,22 @@ body {
 }
 
 #page {
-  max-width: 33rem;
-  margin: 0 auto 3.2rem;
+  max-width: clamp(33rem, 30rem + 60vw , 117rem);
+  padding: 0 5rem;
+  margin: 0 auto;
 }
 
 #page header {
   text-align: center;
   margin: 10rem auto 8rem;
+  animation: topDown 1000ms 400ms backwards;
 }
 
 #page header h1 {
   font-weight: var(--fw-heading);
   font-size: var(--fs-heading);
   line-height: var(--lh-heading);
+  animation: rightSide 800ms ease-in backwards;
 }
 
 #page header p {
@@ -64,11 +68,14 @@ body {
   line-height: 3.2rem;
   letter-spacing: 3px;
   margin-bottom: 1.7rem;
+  animation: leftSide 800ms ease-in backwards;
 }
 
 #page main {
   display: grid;
   gap: 3.2rem;
+  margin-bottom: 10rem;
+  animation: downTop 800ms 400ms both;
 }
 
 #page main .cards {
@@ -78,18 +85,19 @@ body {
 #page main .cards img {
   height: 41.6rem;
   object-fit: cover;
+  filter: blur(1px) brightness(.5);
   border-radius: .6rem;
-  transition: all 200ms ease-in-out; 
+  transition: all 300ms ease-in-out; 
 }
 
 #page main .cards img:hover {
   transform: scale(1.1);
-  opacity: .5;
+  filter: brightness(1) blur(0);
 }
 
 #page main .cards h2 {
   font-weight: var(--fw-heading);
-  font-size: var(--fs-heading);
+  font-size: var(--fs-heading-sm);
   line-height: var(--lh-heading);
   position: absolute;
   bottom: 5.1rem;
@@ -113,4 +121,93 @@ body {
   align-items: center;
   /* Ocupar somente o tamanho do conteúdo e não se esticar por toda a caixa */
   width: fit-content;
+}
+
+@keyframes leftSide {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes rightSide {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes topDown {
+  0% {
+    transform: translateY(-10px);
+  }
+  
+  33% {
+    transform: translateY(0);
+  }
+  
+  66% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes downTop {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 700px) {
+  /* :root {
+    --fs-heading: 5.6rem
+  } */
+
+  #page main {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+@media (min-width: 940px) {
+  #page main {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "column1 column2 column2"
+                         "column3 column3 column4";
+  }
+
+  #page main div:nth-child(1) {
+    grid-area: column1;
+  }
+
+  #page main div:nth-child(2) {
+    grid-area: column2;
+  }
+
+  #page main div:nth-child(3) {
+    grid-area: column3;
+  }
+
+  #page main div:nth-child(4) {
+    grid-area: column4;
+  }
 }
