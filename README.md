@@ -3,7 +3,7 @@
 </p>
 
 ## 🖥️ Projeto
-Nesse projeto foi desenvolvido um exemplo de portfolio para aprender a conceitos de css como grid, filter, clamp, transform, transition, animation, @keyframes, @media e espaçamentos responsivos além de começar pela versão mobile (mobile first) e como vai se comportar em diferentes tipos de resoluções.
+Nesse projeto foi desenvolvido um exemplo de portfolio para aprender os conceitos de css como grid, filter, clamp, transform, transition, animation, @keyframes, @media queries, espaçamentos e fontes responsivas além de começar pela versão mobile (mobile first) e como o layout vai se comportando em diferentes tipos de resoluções.
 
 ## 🚀 Tecnologias
 Foi desenvolvido esse projeto no programa Explorer da Rocketseat no stage 02.
